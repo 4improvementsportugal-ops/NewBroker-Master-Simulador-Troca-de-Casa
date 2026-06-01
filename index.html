@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Descubra se está pronto para trocar de casa. Simulador NewBroker Master — resultado em 3 minutos.">
+  <title>Simulador de Troca de Casa | NewBroker Master</title>
+
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window,document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','2974835026201382');
+  fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2974835026201382&ev=PageView&noscript=1"/></noscript>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+    :root{
+      --navy:#0B1426;
+      --navy-mid:#162140;
+      --gold:#BFA16A;
+      --gold-lt:#D4BB8A;
+      --gold-dim:rgba(191,161,106,.12);
+      --gold-border:rgba(191,161,106,.28);
+      --white:#FFFFFF;
+      --cream:#F7F5F0;
+      --text:#1A1A2E;
+      --text-mid:#475569;
+      --text-lt:#94A3B8;
+      --err:#DC2626;
+      --border:#E2E8F0;
+    }
+
+    html{scroll-behavior:smooth}
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--navy);
+      color:var(--white);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    /* ═══ HERO ═══ */
+    #hero{
+      min-height:100vh;
+      background:linear-gradient(150deg,#080f1e 0%,#12203d 55%,#080f1e 100%);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding:48px 24px 64px;
+      position:relative;
+      overflow:hidden;
+    }
+    #hero::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:radial-gradient(ellipse 80% 60% at 50% 35%,rgba(191,161,106,.07) 0%,transparent 70%);
+      pointer-events:none;
+    }
+    #hero::after{
+      content:'';
+      position:absolute;
+      bottom:0;left:0;right:0;
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(191,161,106,.3),transparent);
+    }
+
+    .h-inner{
+      max-width:640px;
+      width:100%;
+      text-align:center;
+      position:relative;
+      z-index:1;
+    }
+
+    .h-brand{
+      display:inline-flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:52px;
+    }
+    .h-badge{
+      width:52px;height:52px;
+      background:var(--gold);
+      color:var(--navy);
+      font-family:'Cormorant Garamond',serif;
+      font-weight:700;
+      font-size:19px;
+      letter-spacing:1px;
+      border-radius:10px;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .h-brand-name{
+      text-align:left;
+      font-size:11px;
+      font-weight:600;
+      letter-spacing:3.5px;
+      text-transform:uppercase;
+      color:var(--gold-lt);
+      line-height:1.4;
+    }
+
+    .h-eyebrow{
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:5px;
+      text-transform:uppercase;
+      color:var(--gold);
+      margin-bottom:22px;
+      opacity:.85;
+    }
+
+    .h-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(30px,5.5vw,50px);
+      font-weight:400;
+      line-height:1.18;
+      color:#fff;
+      margin-bottom:26px;
+      letter-spacing:-.3px;
+    }
+    .h-title em{
+      font-style:italic;
+      color:var(--gold-lt);
+    }
+
+    .h-sub{
+      font-size:clamp(14px,2.2vw,16px);
+      font-weight:300;
+      line-height:1.8;
+      color:rgba(255,255,255,.7);
+      margin-bottom:44px;
+      max-width:520px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .h-cta{
+      display:inline-block;
+      background:var(--gold);
+      color:var(--navy);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      padding:18px 48px;
+      border:none;
+      border-radius:4px;
+      cursor:pointer;
+      transition:all .25s ease;
+      text-decoration:none;
+    }
+    .h-cta:hover{
+      background:var(--gold-lt);
+      transform:translateY(-2px);
+      box-shadow:0 16px 44px rgba(191,161,106,.32);
+    }
+
+    .h-seals{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      margin-top:36px;
+      flex-wrap:wrap;
+    }
+    .seal{font-size:11px;color:rgba(255,255,255,.42);letter-spacing:.4px}
+    .seal-dot{width:3px;height:3px;background:var(--gold);border-radius:50%;opacity:.4}
+
+    /* ═══ QUIZ ═══ */
+    #quiz{
+      display:none;
+      min-height:100vh;
+      background:var(--cream);
+      color:var(--text);
+    }
+
+    .q-header{
+      background:var(--navy);
+      padding:14px 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      position:sticky;top:0;z-index:10;
+    }
+    .q-brand{display:flex;align-items:center;gap:10px}
+    .q-badge{
+      width:34px;height:34px;
+      background:var(--gold);
+      color:var(--navy);
+      font-family:'Cormorant Garamond',serif;
+      font-weight:700;
+      font-size:13px;
+      border-radius:6px;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .q-brand-name{
+      font-size:10px;font-weight:600;letter-spacing:2.5px;
+      text-transform:uppercase;color:var(--gold-lt);
+    }
+    .q-counter{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.8px}
+
+    .prog-wrap{height:3px;background:rgba(191,161,106,.18)}
+    .prog-fill{
+      height:100%;
+      background:linear-gradient(90deg,var(--gold),var(--gold-lt));
+      transition:width .4s cubic-bezier(.4,0,.2,1);
+      width:0%;
+    }
+
+    .q-body{
+      max-width:660px;
+      margin:0 auto;
+      padding:40px 20px 80px;
+    }
+
+    /* Steps */
+    .step{display:none;animation:slideUp .35s ease}
+    .step.active{display:block}
+    @keyframes slideUp{
+      from{opacity:0;transform:translateY(18px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    .s-eyebrow{
+      font-size:10px;font-weight:700;letter-spacing:3.5px;
+      text-transform:uppercase;color:var(--gold);margin-bottom:10px;
+    }
+    .s-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(22px,4vw,30px);
+      font-weight:600;
+      color:var(--navy);
+      margin-bottom:32px;
+      line-height:1.2;
+    }
+
+    /* Question group */
+    .qg{margin-bottom:28px}
+    .ql{
+      font-size:12px;font-weight:700;letter-spacing:.5px;
+      text-transform:uppercase;color:var(--text-mid);
+      margin-bottom:12px;
+    }
+
+    /* Option grids */
+    .og{display:grid;gap:10px}
+    .og.c2{grid-template-columns:1fr 1fr}
+    .og.c4{grid-template-columns:repeat(4,1fr)}
+    @media(max-width:500px){.og.c4{grid-template-columns:1fr 1fr}}
+    @media(max-width:380px){.og.c2{grid-template-columns:1fr}}
+
+    .oc{position:relative}
+    .oc input[type=radio]{position:absolute;opacity:0;width:0;height:0}
+    .oc label{
+      display:flex;align-items:center;justify-content:center;
+      padding:13px 10px;
+      background:#fff;
+      border:1.5px solid var(--border);
+      border-radius:8px;
+      font-size:13px;font-weight:500;
+      color:var(--text);
+      cursor:pointer;
+      transition:all .18s ease;
+      text-align:center;
+      min-height:50px;
+      line-height:1.3;
+    }
+    .oc input:checked+label{
+      background:var(--navy);
+      border-color:var(--navy);
+      color:#fff;
+      box-shadow:0 4px 16px rgba(11,20,38,.18);
+    }
+    .oc label:hover{border-color:var(--gold);background:var(--gold-dim)}
+    .oc.has-err label{border-color:var(--err)}
+
+    /* Text / select */
+    .ti,.si{
+      width:100%;
+      padding:13px 15px;
+      background:#fff;
+      border:1.5px solid var(--border);
+      border-radius:8px;
+      font-family:'Inter',sans-serif;
+      font-size:14px;
+      color:var(--text);
+      transition:border-color .18s ease;
+      -webkit-appearance:none;appearance:none;
+    }
+    .ti:focus,.si:focus{outline:none;border-color:var(--gold)}
+    .ti.err,.si.err{border-color:var(--err)}
+
+    .sw{position:relative}
+    .sw::after{
+      content:'▾';position:absolute;right:14px;top:50%;
+      transform:translateY(-50%);color:var(--text-lt);
+      pointer-events:none;font-size:12px;
+    }
+
+    /* Errors */
+    .ge,.fe{
+      display:none;font-size:11px;color:var(--err);
+      margin-top:5px;padding-left:2px;
+    }
+    .ge.on,.fe.on{display:block}
+
+    /* Conditional */
+    .cond{transition:opacity .2s}
+    .cond.hide{display:none}
+
+    /* Nav buttons */
+    .qnav{
+      display:flex;align-items:center;
+      justify-content:space-between;
+      margin-top:40px;gap:14px;
+    }
+    .btn-bk{
+      background:transparent;
+      border:1.5px solid #CBD5E0;
+      color:var(--text-mid);
+      font-family:'Inter',sans-serif;
+      font-size:13px;font-weight:500;
+      padding:13px 26px;border-radius:6px;
+      cursor:pointer;transition:all .18s ease;
+      white-space:nowrap;
+    }
+    .btn-bk:hover{border-color:var(--navy);color:var(--navy)}
+
+    .btn-nx{
+      flex:1;max-width:260px;
+      background:var(--navy);color:#fff;
+      font-family:'Inter',sans-serif;
+      font-size:14px;font-weight:600;
+      padding:15px 28px;border:none;border-radius:6px;
+      cursor:pointer;transition:all .22s ease;
+      letter-spacing:.5px;
+    }
+    .btn-nx:hover{
+      background:var(--navy-mid);
+      transform:translateY(-1px);
+      box-shadow:0 8px 24px rgba(11,20,38,.18);
+    }
+    .btn-nx.gold-btn{background:var(--gold);color:var(--navy)}
+    .btn-nx.gold-btn:hover{
+      background:var(--gold-lt);
+      box-shadow:0 8px 28px rgba(191,161,106,.32);
+    }
+    .btn-nx:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+    /* Spinner */
+    .spin{
+      display:none;width:20px;height:20px;
+      border:2px solid rgba(11,20,38,.2);
+      border-top-color:var(--navy);
+      border-radius:50%;
+      animation:rot .7s linear infinite;
+      margin:0 auto;
+    }
+    @keyframes rot{to{transform:rotate(360deg)}}
+
+    /* Contact step */
+    .cf{margin-bottom:16px}
+    .cf>label{
+      display:block;font-size:12px;font-weight:700;
+      letter-spacing:.5px;text-transform:uppercase;
+      color:var(--text-mid);margin-bottom:8px;
+    }
+
+    .privacy-note{
+      font-size:11px;color:var(--text-lt);line-height:1.6;
+      margin-top:10px;
+    }
+
+    .qsep{height:1px;background:var(--border);margin:24px 0}
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section id="hero">
+  <div class="h-inner">
+    <div class="h-brand">
+      <div class="h-badge">NB</div>
+      <div class="h-brand-name">NewBroker<br>Master</div>
+    </div>
+
+    <p class="h-eyebrow">Simulador de Viabilidade Imobiliária</p>
+
+    <h1 class="h-title">
+      A sua próxima casa já existe.<br>
+      <em>Falta perceber se está pronto<br>para a conquistar.</em>
+    </h1>
+
+    <p class="h-sub">
+      Responda a 5 perguntas e descubra, em menos de 3 minutos,
+      se a troca de casa é viável para si — e o que precisa de fazer
+      para avançar com confiança.
+    </p>
+
+    <button class="h-cta" onclick="startQuiz()">Iniciar simulação gratuita</button>
+
+    <div class="h-seals">
+      <span class="seal">Menos de 3 minutos</span>
+      <span class="seal-dot"></span>
+      <span class="seal">Sem compromisso</span>
+      <span class="seal-dot"></span>
+      <span class="seal">Resultado imediato</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ QUIZ ═══════════════════════ -->
+<section id="quiz">
+
+  <div class="q-header">
+    <div class="q-brand">
+      <div class="q-badge">NB</div>
+      <div class="q-brand-name">NewBroker Master</div>
+    </div>
+    <div class="q-counter" id="qCounter">Passo 1 de 5</div>
+  </div>
+  <div class="prog-wrap"><div class="prog-fill" id="progFill"></div></div>
+
+  <div class="q-body">
+
+    <!-- ══ PASSO 1 ══ -->
+    <div class="step active" id="step1">
+      <p class="s-eyebrow">Passo 1 de 5</p>
+      <h2 class="s-title">O que procura?</h2>
+
+      <div class="qg">
+        <p class="ql">Tipo de imóvel</p>
+        <div class="og c2" id="g-tp">
+          <div class="oc">
+            <input type="radio" name="tipo_procura" id="tp-apt" value="apartamento">
+            <label for="tp-apt">Apartamento</label>
+          </div>
+          <div class="oc">
+            <input type="radio" name="tipo_procura" id="tp-mor" value="moradia">
+            <label for="tp-mor">Moradia</label>
+          </div>
+        </div>
+        <p class="ge" id="e-tp">Por favor selecione o tipo de imóvel.</p>
+      </div>
+
+      <div class="qg">
+        <p class="ql">Tipologia</p>
+        <div class="og c4" id="g-tipp">
+          <div class="oc"><input type="radio" name="tipologia_procura" id="tpp1" value="T1"><label for="tpp1">T1</label></div>
+          <div class="oc"><input type="radio" name="tipologia_procura" id="tpp2" value="T2"><label for="tpp2">T2</label></div>
+          <div class="oc"><input type="radio" name="tipologia_procura" id="tpp3" value="T3"><label for="tpp3">T3</label></div>
+          <div class="oc"><input type="radio" name="tipologia_procura" id="tpp4" value="T4+"><label for="tpp4">T4+</label></div>
+        </div>
+        <p class="ge" id="e-tipp">Por favor selecione a tipologia.</p>
+      </div>
+
+      <div class="qg">
+        <p class="ql">Localização pretendida</p>
+        <input type="text" class="ti" id="loc_procura" placeholder="Ex: Lisboa, Porto, Cascais, Braga…">
+        <p class="fe" id="e-loc">Por favor indique a localização pretendida.</p>
+      </div>
+
+      <div class="qnav">
+        <div></div>
+        <button class="btn-nx" onclick="nextStep(1)">Continuar</button>
+      </div>
+    </div>
+
+    <!-- ══ PASSO 2 ══ -->
+    <div class="step" id="step2">
+      <p class="s-eyebrow">Passo 2 de 5</p>
+      <h2 class="s-title">O que precisa de vender?</h2>
+
+      <div class="qg">
+        <p class="ql">Tipo de imóvel a vender</p>
+        <div class="og c2" id="g-tv">
+          <div class="oc">
+            <input type="radio" name="tipo_vender" id="tv-apt" value="apartamento" onchange="vis2()">
+            <label for="tv-apt">Apartamento</label>
+          </div>
+          <div class="oc">
+            <input type="radio" name="tipo_vender" id="tv-mor" value="moradia" onchange="vis2()">
+            <label for="tv-mor">Moradia</label>
+          </div>
+          <div class="oc">
+            <input type="radio" name="tipo_vender" id="tv-ter" value="terreno" onchange="vis2()">
+            <label for="tv-ter">Terreno</label>
+          </div>
+          <div class="oc">
+            <input type="radio" name="tipo_vender" id="tv-nao" value="nao_preciso" onchange="vis2()">
+            <label for="tv-nao">Não preciso de vender</label>
+          </div>
+        </div>
+        <p class="ge" id="e-tv">Por favor selecione uma opção.</p>
+      </div>
+
+      <!-- Tipologia atual — esconder se Terreno ou Não preciso -->
+      <div class="qg cond" id="cond-tipv">
+        <p class="ql">Tipologia atual</p>
+        <div class="og c4">
+          <div class="oc"><input type="radio" name="tipologia_vender" id="tv1" value="T1"><label for="tv1">T1</label></div>
+          <div class="oc"><input type="radio" name="tipologia_vender" id="tv2" value="T2"><label for="tv2">T2</label></div>
+          <div class="oc"><input type="radio" name="tipologia_vender" id="tv3" value="T3"><label for="tv3">T3</label></div>
+          <div class="oc"><input type="radio" name="tipologia_vender" id="tv4" value="T4+"><label for="tv4">T4+</label></div>
+        </div>
+        <p class="ge" id="e-tipv">Por favor selecione a tipologia.</p>
+      </div>
+
+      <!-- Estado — esconder se Não preciso -->
+      <div class="qg cond" id="cond-estado">
+        <p class="ql">Estado do imóvel</p>
+        <div class="sw">
+          <select class="si" id="estado_imovel">
+            <option value="">Selecione o estado…</option>
+            <option value="novo">Novo / Recuperado</option>
+            <option value="usado_bom">Usado — bom estado</option>
+            <option value="obras">Precisa de obras</option>
+          </select>
+        </div>
+        <p class="fe" id="e-estado">Por favor selecione o estado do imóvel.</p>
+      </div>
+
+      <!-- Zona — esconder se Não preciso -->
+      <div class="qg cond" id="cond-zona">
+        <p class="ql">Zona do imóvel atual</p>
+        <input type="text" class="ti" id="zona_imovel" placeholder="Ex: Setúbal, Aveiro, Faro…">
+        <p class="fe" id="e-zona">Por favor indique a zona do imóvel.</p>
+      </div>
+
+      <div class="qnav">
+        <button class="btn-bk" onclick="prevStep(2)">Voltar</button>
+        <button class="btn-nx" onclick="nextStep(2)">Continuar</button>
+      </div>
+    </div>
+
+    <!-- ══ PASSO 3 ══ -->
+    <div class="step" id="step3">
+      <p class="s-eyebrow">Passo 3 de 5</p>
+      <h2 class="s-title">Vamos perceber a sua margem de manobra</h2>
+
+      <div class="qg">
+        <p class="ql">Tem crédito habitação ativo?</p>
+        <div class="og c2">
+          <div class="oc">
+            <input type="radio" name="credito_ativo" id="cr-sim" value="sim" onchange="vis3()">
+            <label for="cr-sim">Sim</label>
+          </div>
+          <div class="oc">
+            <input type="radio" name="credito_ativo" id="cr-nao" value="nao" onchange="vis3()">
+            <label for="cr-nao">Não (imóvel pago)</label>
+          </div>
+        </div>
+        <p class="ge" id="e-cred">Por favor responda a esta questão.</p>
+      </div>
+
+      <!-- Capital em dívida — mostrar só se Sim -->
+      <div class="qg cond hide" id="cond-divida">
+        <p class="ql">Capital em dívida (aproximado)</p>
+        <div class="og c2">
+          <div class="oc"><input type="radio" name="capital_divida" id="cd1" value="menos_50k"><label for="cd1">Menos de 50 000 €</label></div>
+          <div class="oc"><input type="radio" name="capital_divida" id="cd2" value="50_100k"><label for="cd2">50 000 – 100 000 €</label></div>
+          <div class="oc"><input type="radio" name="capital_divida" id="cd3" value="100_200k"><label for="cd3">100 000 – 200 000 €</label></div>
+          <div class="oc"><input type="radio" name="capital_divida" id="cd4" value="mais_200k"><label for="cd4">Mais de 200 000 €</label></div>
+        </div>
+        <p class="ge" id="e-divida">Por favor selecione o capital em dívida.</p>
+      </div>
+
+      <div class="qg">
+        <p class="ql">Capitais próprios disponíveis</p>
+        <div class="og c2">
+          <div class="oc"><input type="radio" name="capitais_proprios" id="cp0" value="nenhum"><label for="cp0">Nenhum</label></div>
+          <div class="oc"><input type="radio" name="capitais_proprios" id="cp1" value="ate_20k"><label for="cp1">Até 20 000 €</label></div>
+          <div class="oc"><input type="radio" name="capitais_proprios" id="cp2" value="20_60k"><label for="cp2">20 000 – 60 000 €</label></div>
+          <div class="oc"><input type="radio" name="capitais_proprios" id="cp3" value="mais_60k"><label for="cp3">Mais de 60 000 €</label></div>
+        </div>
+        <p class="ge" id="e-cap">Por favor selecione os capitais próprios disponíveis.</p>
+      </div>
+
+      <div class="qnav">
+        <button class="btn-bk" onclick="prevStep(3)">Voltar</button>
+        <button class="btn-nx" onclick="nextStep(3)">Continuar</button>
+      </div>
+    </div>
+
+    <!-- ══ PASSO 4 ══ -->
+    <div class="step" id="step4">
+      <p class="s-eyebrow">Passo 4 de 5</p>
+      <h2 class="s-title">Em quanto tempo quer concretizar?</h2>
+
+      <div class="qg">
+        <p class="ql">Prazo desejado</p>
+        <div class="og c2">
+          <div class="oc"><input type="radio" name="prazo" id="pr1" value="rapido"><label for="pr1">O mais rápido possível</label></div>
+          <div class="oc"><input type="radio" name="prazo" id="pr2" value="3meses"><label for="pr2">Menos de 3 meses</label></div>
+          <div class="oc"><input type="radio" name="prazo" id="pr3" value="3a6meses"><label for="pr3">3 a 6 meses</label></div>
+          <div class="oc"><input type="radio" name="prazo" id="pr4" value="mais6meses"><label for="pr4">Mais de 6 meses</label></div>
+        </div>
+        <p class="ge" id="e-prazo">Por favor selecione o prazo.</p>
+      </div>
+
+      <div class="qg">
+        <p class="ql">Motivo da mudança</p>
+        <div class="og c2">
+          <div class="oc"><input type="radio" name="motivo_mudanca" id="mo1" value="familia"><label for="mo1">Família / Espaço</label></div>
+          <div class="oc"><input type="radio" name="motivo_mudanca" id="mo2" value="zona"><label for="mo2">Mudança de zona</label></div>
+          <div class="oc"><input type="radio" name="motivo_mudanca" id="mo3" value="upgrade"><label for="mo3">Upgrade de qualidade de vida</label></div>
+          <div class="oc"><input type="radio" name="motivo_mudanca" id="mo4" value="financeiro"><label for="mo4">Razões financeiras</label></div>
+          <div class="oc"><input type="radio" name="motivo_mudanca" id="mo5" value="outro"><label for="mo5">Outro</label></div>
+        </div>
+        <p class="ge" id="e-motivo">Por favor selecione o motivo da mudança.</p>
+      </div>
+
+      <div class="qnav">
+        <button class="btn-bk" onclick="prevStep(4)">Voltar</button>
+        <button class="btn-nx" onclick="nextStep(4)">Continuar</button>
+      </div>
+    </div>
+
+    <!-- ══ PASSO 5 ══ -->
+    <div class="step" id="step5">
+      <p class="s-eyebrow">Passo 5 de 5</p>
+      <h2 class="s-title">Onde enviamos o seu resultado?</h2>
+      <p style="font-size:14px;color:var(--text-mid);margin-bottom:30px;line-height:1.7;">
+        Preencha os dados abaixo. Um consultor NewBroker Master pode contactá-lo para aprofundar a análise personalizada.
+      </p>
+
+      <div class="cf">
+        <label for="nome">Nome completo *</label>
+        <input type="text" class="ti" id="nome" placeholder="O seu nome completo" autocomplete="name">
+        <p class="fe" id="e-nome">Por favor indique o seu nome.</p>
+      </div>
+
+      <div class="cf">
+        <label for="telemovel">Telemóvel *</label>
+        <input type="tel" class="ti" id="telemovel" placeholder="+351 9XX XXX XXX" autocomplete="tel">
+        <p class="fe" id="e-tel">Por favor indique um número válido (mínimo 9 dígitos).</p>
+      </div>
+
+      <div class="cf">
+        <label for="email">E-mail *</label>
+        <input type="email" class="ti" id="email" placeholder="o.seu@email.com" autocomplete="email">
+        <p class="fe" id="e-email">Por favor indique um e-mail válido.</p>
+      </div>
+
+      <p class="privacy-note">
+        Ao submeter, aceita ser contactado pela equipa NewBroker Master.
+        Os seus dados são tratados com total confidencialidade e não são partilhados com terceiros.
+      </p>
+
+      <div class="qnav">
+        <button class="btn-bk" onclick="prevStep(5)">Voltar</button>
+        <button class="btn-nx gold-btn" id="btnFin" onclick="finalizar()">
+          <span id="btnTxt">Ver resultado →</span>
+          <div class="spin" id="spinner"></div>
+        </button>
+      </div>
+    </div>
+
+  </div><!-- /q-body -->
+</section>
+
+<script>
+(function(){
+  var PIXEL_ID  = '2974835026201382';
+  var WEBHOOK   = 'SEU_WEBHOOK_URL_AQUI'; // ← Substituir pelo URL do webhook GoHighLevel
+  var ORIGEM    = 'NewBroker Master — Simulador Troca de Casa';
+  var SKEY      = 'nbm_quiz_v1';
+  var cur       = 1;
+  var TOTAL     = 5;
+
+  /* ── HERO → QUIZ ── */
+  window.startQuiz = function(){
+    document.getElementById('hero').style.display = 'none';
+    document.getElementById('quiz').style.display = 'block';
+    scrollTo(0,0);
+    updateProg();
+  };
+
+  /* ── PROGRESS ── */
+  function updateProg(){
+    var pct = ((cur-1)/TOTAL)*100;
+    document.getElementById('progFill').style.width = pct+'%';
+    document.getElementById('qCounter').textContent = 'Passo '+cur+' de '+TOTAL;
+  }
+
+  /* ── NAVIGATION ── */
+  window.nextStep = function(from){
+    if(!validate(from)) return;
+    document.getElementById('step'+from).classList.remove('active');
+    cur = from+1;
+    document.getElementById('step'+cur).classList.add('active');
+    updateProg();
+    scrollTo(0,0);
+  };
+
+  window.prevStep = function(from){
+    document.getElementById('step'+from).classList.remove('active');
+    cur = from-1;
+    document.getElementById('step'+cur).classList.add('active');
+    updateProg();
+    scrollTo(0,0);
+  };
+
+  /* ── CONDITIONAL VISIBILITY ── */
+  window.vis2 = function(){
+    var v = (document.querySelector('input[name="tipo_vender"]:checked')||{}).value;
+    var noSell  = v==='nao_preciso';
+    var noTipol = noSell || v==='terreno';
+
+    id('cond-tipv').classList.toggle('hide', noTipol);
+    id('cond-estado').classList.toggle('hide', noSell);
+    id('cond-zona').classList.toggle('hide', noSell);
+
+    if(noTipol) qAll('input[name="tipologia_vender"]').forEach(function(r){r.checked=false});
+    if(noSell){
+      id('estado_imovel').value='';
+      id('zona_imovel').value='';
+    }
+  };
+
+  window.vis3 = function(){
+    var v = (document.querySelector('input[name="credito_ativo"]:checked')||{}).value;
+    id('cond-divida').classList.toggle('hide', v!=='sim');
+    if(v!=='sim') qAll('input[name="capital_divida"]').forEach(function(r){r.checked=false});
+  };
+
+  /* ── VALIDATE ── */
+  function clearErr(){
+    qAll('.ge.on,.fe.on').forEach(function(e){e.classList.remove('on')});
+    qAll('.ti.err,.si.err').forEach(function(e){e.classList.remove('err')});
+  }
+
+  function gErr(eid){ id(eid).classList.add('on') }
+  function fErr(eid,iid){ id(eid).classList.add('on'); id(iid).classList.add('err') }
+  function radio(name){ return document.querySelector('input[name="'+name+'"]:checked') }
+
+  function validate(n){
+    clearErr();
+    var ok=true;
+
+    if(n===1){
+      if(!radio('tipo_procura'))        { gErr('e-tp');   ok=false }
+      if(!radio('tipologia_procura'))   { gErr('e-tipp'); ok=false }
+      if(!id('loc_procura').value.trim()){ fErr('e-loc','loc_procura'); ok=false }
+    }
+
+    if(n===2){
+      var tv=(radio('tipo_vender')||{}).value;
+      if(!tv){ gErr('e-tv'); ok=false }
+      else{
+        var needTip = tv!=='nao_preciso' && tv!=='terreno';
+        if(needTip && !radio('tipologia_vender')){ gErr('e-tipv'); ok=false }
+        if(tv!=='nao_preciso'){
+          if(!id('estado_imovel').value){ fErr('e-estado','estado_imovel'); ok=false }
+          if(!id('zona_imovel').value.trim()){ fErr('e-zona','zona_imovel'); ok=false }
+        }
+      }
+    }
+
+    if(n===3){
+      var cr=(radio('credito_ativo')||{}).value;
+      if(!cr){ gErr('e-cred'); ok=false }
+      else if(cr==='sim' && !radio('capital_divida')){ gErr('e-divida'); ok=false }
+      if(!radio('capitais_proprios')){ gErr('e-cap'); ok=false }
+    }
+
+    if(n===4){
+      if(!radio('prazo'))          { gErr('e-prazo');  ok=false }
+      if(!radio('motivo_mudanca')) { gErr('e-motivo'); ok=false }
+    }
+
+    if(n===5){
+      var nome = id('nome').value.trim();
+      var tel  = id('telemovel').value.replace(/\D/g,'');
+      var eml  = id('email').value.trim();
+      var reEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+      if(!nome)              { fErr('e-nome','nome');     ok=false }
+      if(tel.length<9)       { fErr('e-tel','telemovel'); ok=false }
+      if(!reEmail.test(eml)) { fErr('e-email','email');   ok=false }
+    }
+
+    return ok;
+  }
+
+  /* ── SCORE ── */
+  function calcScore(a){
+    var s = 5;
+    if(a.capitais_proprios==='nenhum')   s -= 1;
+    if(a.capitais_proprios==='20_60k')   s += 1;
+    if(a.capitais_proprios==='mais_60k') s += 2;
+    if(a.credito_ativo==='nao')          s += 1;
+    if(a.prazo==='rapido')               s -= 1;
+    if(a.prazo==='3a6meses')             s += 1;
+    if(a.prazo==='mais6meses')           s += 1;
+    if(a.tipo_vender==='nao_preciso')    s += 1;
+    if(a.tipo_procura===a.tipo_vender)   s += 0.5;
+    if(a.capital_divida==='mais_200k')   s -= 1;
+    return Math.max(0, Math.min(10, Math.round(s*10)/10));
+  }
+
+  /* ── LABELS ── */
+  var LBL = {
+    tipo_procura:      {apartamento:'Apartamento',moradia:'Moradia'},
+    tipo_vender:       {apartamento:'Apartamento',moradia:'Moradia',terreno:'Terreno',nao_preciso:'Não preciso de vender'},
+    estado_imovel:     {novo:'Novo / Recuperado',usado_bom:'Usado — bom estado',obras:'Precisa de obras'},
+    credito_ativo:     {sim:'Sim',nao:'Não (imóvel pago)'},
+    capital_divida:    {menos_50k:'Menos de 50 000 €','50_100k':'50 000 – 100 000 €','100_200k':'100 000 – 200 000 €',mais_200k:'Mais de 200 000 €'},
+    capitais_proprios: {nenhum:'Nenhum',ate_20k:'Até 20 000 €','20_60k':'20 000 – 60 000 €',mais_60k:'Mais de 60 000 €'},
+    prazo:             {rapido:'O mais rápido possível','3meses':'Menos de 3 meses','3a6meses':'3 a 6 meses',mais6meses:'Mais de 6 meses'},
+    motivo_mudanca:    {familia:'Família / Espaço',zona:'Mudança de zona',upgrade:'Upgrade de qualidade de vida',financeiro:'Razões financeiras',outro:'Outro'}
+  };
+
+  function lbl(field,val){ return (LBL[field]&&LBL[field][val]) || val || 'N/A' }
+
+  /* ── FINALIZAR ── */
+  window.finalizar = function(){
+    if(!validate(5)) return;
+
+    var btn = id('btnFin');
+    btn.disabled = true;
+    id('btnTxt').style.display = 'none';
+    id('spinner').style.display = 'block';
+
+    var a = {
+      tipo_procura:      (radio('tipo_procura')||{}).value,
+      tipologia_procura: (radio('tipologia_procura')||{}).value,
+      localizacao_procura: id('loc_procura').value.trim(),
+      tipo_vender:       (radio('tipo_vender')||{}).value,
+      tipologia_vender:  ((radio('tipologia_vender')||{}).value)||null,
+      estado_imovel:     id('estado_imovel').value||null,
+      zona_imovel:       id('zona_imovel').value.trim()||null,
+      credito_ativo:     (radio('credito_ativo')||{}).value,
+      capital_divida:    ((radio('capital_divida')||{}).value)||null,
+      capitais_proprios: (radio('capitais_proprios')||{}).value,
+      prazo:             (radio('prazo')||{}).value,
+      motivo_mudanca:    (radio('motivo_mudanca')||{}).value,
+      nome:              id('nome').value.trim(),
+      telemovel:         id('telemovel').value.trim(),
+      email:             id('email').value.trim()
+    };
+
+    var score = calcScore(a);
+
+    /* 1 — Pixel Lead */
+    try{
+      fbq('track','Lead',{
+        content_name: ORIGEM,
+        content_category: 'NewBroker Master',
+        value: score,
+        currency: 'EUR'
+      });
+    }catch(x){}
+
+    /* 2 — Webhook */
+    var payload = {
+      timestamp:         new Date().toISOString(),
+      origem:            ORIGEM,
+      pagina_url:        location.href,
+      nome:              a.nome,
+      telemovel:         a.telemovel,
+      email:             a.email,
+      score_viabilidade: score,
+      respostas:{
+        tipo_imovel_procura:  lbl('tipo_procura',a.tipo_procura),
+        tipologia_procura:    a.tipologia_procura||'N/A',
+        localizacao_procura:  a.localizacao_procura,
+        tipo_imovel_vender:   lbl('tipo_vender',a.tipo_vender),
+        tipologia_vender:     a.tipologia_vender||'N/A',
+        estado_imovel:        lbl('estado_imovel',a.estado_imovel)||'N/A',
+        zona_imovel:          a.zona_imovel||'N/A',
+        credito_ativo:        lbl('credito_ativo',a.credito_ativo),
+        capital_divida:       lbl('capital_divida',a.capital_divida)||'N/A',
+        capitais_proprios:    lbl('capitais_proprios',a.capitais_proprios),
+        prazo:                lbl('prazo',a.prazo),
+        motivo_mudanca:       lbl('motivo_mudanca',a.motivo_mudanca)
+      }
+    };
+
+    try{
+      fetch(WEBHOOK,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(payload),
+        keepalive:true
+      }).catch(function(){});
+    }catch(x){}
+
+    /* 3 — sessionStorage */
+    sessionStorage.setItem(SKEY, JSON.stringify({answers:a, score:score}));
+
+    /* 4 — Redirect */
+    location.href = 'resultado.html';
+  };
+
+  /* ── UTILS ── */
+  function id(x){ return document.getElementById(x) }
+  function qAll(s){ return Array.prototype.slice.call(document.querySelectorAll(s)) }
+
+})();
+</script>
+</body>
+</html>
