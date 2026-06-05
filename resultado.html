@@ -14,11 +14,11 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window,document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init','2974835026201382');
+  fbq('init','4639264789634405');
   fbq('track','PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=2974835026201382&ev=PageView&noscript=1"/></noscript>
+  src="https://www.facebook.com/tr?id=4639264789634405&ev=PageView&noscript=1"/></noscript>
 
   <!-- Redirect guard — fast, runs before body renders -->
   <script>
@@ -37,24 +37,18 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
     :root{
-      --navy:#0B1426;
-      --navy-mid:#162140;
-      --gold:#BFA16A;
-      --gold-lt:#D4BB8A;
-      --gold-dim:rgba(191,161,106,.12);
-      --gold-border:rgba(191,161,106,.28);
+      --blue:#056195;
+      --blue-dk:#044f7a;
+      --blue-xdk:#033d61;
       --white:#FFFFFF;
-      --cream:#F7F5F0;
-      --text:#1A1A2E;
+      --cream:#F0F7FC;
+      --text:#1A2733;
       --text-mid:#475569;
       --text-lt:#94A3B8;
-      --border:#E2E8F0;
-      --exc:#2D7D4A;
-      --exc-bg:rgba(45,125,74,.08);
-      --bom:#1A2744;
-      --bom-bg:rgba(26,39,68,.07);
-      --mod:#B45309;
-      --mod-bg:rgba(180,83,9,.08);
+      --err:#DC2626;
+      --border:#CFE8F5;
+      --navy:#056195;
+      --navy-mid:#044f7a;
     }
 
     html{scroll-behavior:smooth}
@@ -78,8 +72,8 @@
     .r-brand{display:flex;align-items:center;gap:10px}
     .r-badge{
       width:36px;height:36px;
-      background:var(--gold);
-      color:var(--navy);
+      background:#fff;
+      color:var(--blue);
       font-family:'Cormorant Garamond',serif;
       font-weight:700;font-size:13px;
       border-radius:6px;
@@ -87,7 +81,7 @@
     }
     .r-brand-name{
       font-size:10px;font-weight:600;letter-spacing:2.5px;
-      text-transform:uppercase;color:var(--gold-lt);
+      text-transform:uppercase;color:rgba(255,255,255,.7);
     }
     .r-back{
       font-size:11px;color:rgba(255,255,255,.4);
@@ -95,11 +89,11 @@
       letter-spacing:.5px;
       transition:color .2s;
     }
-    .r-back:hover{color:var(--gold-lt)}
+    .r-back:hover{color:rgba(255,255,255,.8)}
 
     /* ── HERO BAND ── */
     .r-hero{
-      background:linear-gradient(150deg,#080f1e,#12203d 60%,#080f1e);
+      background:linear-gradient(150deg,#033d61,#056195 60%,#033d61);
       padding:52px 24px 60px;
       text-align:center;
       position:relative;
@@ -107,19 +101,19 @@
     }
     .r-hero::before{
       content:'';position:absolute;inset:0;
-      background:radial-gradient(ellipse 70% 55% at 50% 30%,rgba(191,161,106,.08),transparent 70%);
+      background:radial-gradient(ellipse 70% 55% at 50% 30%,rgba(255,255,255,.07),transparent 70%);
       pointer-events:none;
     }
     .r-hero::after{
       content:'';position:absolute;
       bottom:0;left:0;right:0;height:1px;
-      background:linear-gradient(90deg,transparent,rgba(191,161,106,.25),transparent);
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
     }
 
     .r-eyebrow{
       font-size:10px;font-weight:700;letter-spacing:4px;
-      text-transform:uppercase;color:var(--gold);
-      margin-bottom:14px;opacity:.85;
+      text-transform:uppercase;color:rgba(255,255,255,.85);
+      margin-bottom:14px;
     }
 
     .r-greeting{
@@ -163,7 +157,7 @@
       margin-bottom:24px;
     }
     .badge-exc{background:rgba(45,125,74,.2);color:#4ADE80;border:1px solid rgba(74,222,128,.25)}
-    .badge-bom{background:rgba(191,161,106,.15);color:var(--gold-lt);border:1px solid rgba(191,161,106,.3)}
+    .badge-bom{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.3)}
     .badge-mod{background:rgba(180,83,9,.18);color:#FBA94C;border:1px solid rgba(251,169,76,.25)}
 
     /* Score bar */
@@ -181,7 +175,7 @@
       transition:width 1.1s cubic-bezier(.4,0,.2,1);
     }
     .score-bar-fill.exc{background:linear-gradient(90deg,#16a34a,#4ADE80)}
-    .score-bar-fill.bom{background:linear-gradient(90deg,var(--gold),var(--gold-lt))}
+    .score-bar-fill.bom{background:linear-gradient(90deg,rgba(255,255,255,.6),#fff)}
     .score-bar-fill.mod{background:linear-gradient(90deg,#B45309,#FBA94C)}
 
     .badge-msg{
@@ -214,13 +208,13 @@
     }
     .ic-label{
       font-size:10px;font-weight:700;letter-spacing:3px;
-      text-transform:uppercase;color:var(--gold);
+      text-transform:uppercase;color:var(--blue);
       margin-bottom:10px;
     }
     .ic-value{
       font-family:'Cormorant Garamond',serif;
       font-size:20px;font-weight:600;
-      color:var(--navy);line-height:1.25;
+      color:var(--text);line-height:1.25;
     }
 
     /* Quote */
@@ -237,13 +231,13 @@
       top:12px;left:18px;
       font-family:'Cormorant Garamond',serif;
       font-size:64px;font-weight:300;
-      color:var(--gold);opacity:.35;
+      color:rgba(255,255,255,.25);
       line-height:1;
     }
     .r-quote p{
       font-family:'Cormorant Garamond',serif;
       font-size:19px;font-weight:400;font-style:italic;
-      color:#fff;line-height:1.65;
+      color:rgba(255,255,255,.9);line-height:1.65;
       padding-left:8px;
     }
     .r-quote cite{
@@ -251,7 +245,7 @@
       font-family:'Inter',sans-serif;
       font-size:11px;font-weight:500;
       letter-spacing:2px;text-transform:uppercase;
-      color:var(--gold);opacity:.75;
+      color:rgba(255,255,255,.55);
       padding-left:8px;
     }
 
@@ -259,7 +253,7 @@
     .sec-title{
       font-family:'Cormorant Garamond',serif;
       font-size:clamp(20px,3.5vw,26px);
-      font-weight:600;color:var(--navy);
+      font-weight:600;color:var(--text);
       margin-bottom:24px;
     }
 
@@ -285,19 +279,19 @@
     }
     .tl-dot{
       width:40px;height:40px;
-      background:var(--navy);
-      border:2px solid var(--gold-border);
+      background:var(--blue);
+      border:2px solid rgba(5,97,149,.15);
       border-radius:50%;
       display:flex;align-items:center;justify-content:center;
       font-family:'Cormorant Garamond',serif;
       font-size:16px;font-weight:600;
-      color:var(--gold);
+      color:#fff;
       flex-shrink:0;
     }
     .tl-line{
       flex:1;
       width:1px;
-      background:linear-gradient(var(--gold-border),transparent);
+      background:linear-gradient(rgba(5,97,149,.2),transparent);
       margin-top:6px;
     }
     .tl-item:last-child .tl-line{display:none}
@@ -305,11 +299,11 @@
     .tl-content{padding-top:8px}
     .tl-step{
       font-size:10px;font-weight:700;letter-spacing:3px;
-      text-transform:uppercase;color:var(--gold);
+      text-transform:uppercase;color:var(--blue);
       margin-bottom:5px;
     }
     .tl-title{
-      font-size:16px;font-weight:600;color:var(--navy);
+      font-size:16px;font-weight:600;color:var(--text);
       margin-bottom:5px;
     }
     .tl-desc{
@@ -329,8 +323,8 @@
     }
     .av-num{
       width:36px;height:36px;
-      background:var(--navy);
-      color:var(--gold);
+      background:var(--blue);
+      color:#fff;
       font-family:'Cormorant Garamond',serif;
       font-size:17px;font-weight:600;
       border-radius:8px;
@@ -340,7 +334,7 @@
     }
     .av-body{}
     .av-title{
-      font-size:14px;font-weight:600;color:var(--navy);
+      font-size:14px;font-weight:600;color:var(--text);
       margin-bottom:5px;
     }
     .av-text{
@@ -351,7 +345,7 @@
     .ctas-title{
       font-family:'Cormorant Garamond',serif;
       font-size:clamp(20px,3.5vw,26px);
-      font-weight:600;color:var(--navy);
+      font-weight:600;color:var(--text);
       margin-bottom:8px;
     }
     .ctas-sub{
@@ -403,11 +397,11 @@
     .cta-sec svg{width:18px;height:18px;flex-shrink:0}
 
     .cta-tel{
-      color:var(--navy);
-      border-color:var(--navy);
+      color:var(--blue);
+      border-color:var(--blue);
       background:#fff;
     }
-    .cta-tel:hover{background:var(--navy);color:#fff}
+    .cta-tel:hover{background:var(--blue);color:#fff}
 
     .cta-ig{
       color:#C13584;
@@ -425,7 +419,7 @@
       letter-spacing:.5px;
     }
     .r-footer a{color:rgba(255,255,255,.4);text-decoration:none}
-    .r-footer a:hover{color:var(--gold-lt)}
+    .r-footer a:hover{color:rgba(255,255,255,.75)}
 
     /* Divider */
     .divider{height:1px;background:var(--border);margin:40px 0}
