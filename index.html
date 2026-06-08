@@ -91,28 +91,14 @@
     .h-brand{
       display:inline-flex;
       align-items:center;
-      gap:14px;
+      justify-content:center;
       margin-bottom:52px;
     }
-    .h-badge{
-      width:52px;height:52px;
-      background:#fff;
-      color:var(--blue);
-      font-family:'Cormorant Garamond',serif;
-      font-weight:700;
-      font-size:19px;
-      letter-spacing:1px;
-      border-radius:10px;
-      display:flex;align-items:center;justify-content:center;
-    }
-    .h-brand-name{
-      text-align:left;
-      font-size:11px;
-      font-weight:600;
-      letter-spacing:3.5px;
-      text-transform:uppercase;
-      color:rgba(255,255,255,.8);
-      line-height:1.4;
+    .h-logo{
+      height:110px;
+      width:auto;
+      border-radius:14px;
+      display:block;
     }
 
     .h-eyebrow{
@@ -198,19 +184,11 @@
       position:sticky;top:0;z-index:10;
     }
     .q-brand{display:flex;align-items:center;gap:10px}
-    .q-badge{
-      width:34px;height:34px;
-      background:#fff;
-      color:var(--blue);
-      font-family:'Cormorant Garamond',serif;
-      font-weight:700;
-      font-size:13px;
-      border-radius:6px;
-      display:flex;align-items:center;justify-content:center;
-    }
-    .q-brand-name{
-      font-size:10px;font-weight:600;letter-spacing:2.5px;
-      text-transform:uppercase;color:rgba(255,255,255,.7);
+    .q-logo{
+      height:34px;
+      width:auto;
+      border-radius:5px;
+      display:block;
     }
     .q-counter{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.8px}
 
@@ -395,8 +373,7 @@
 <section id="hero">
   <div class="h-inner">
     <div class="h-brand">
-      <div class="h-badge">NB</div>
-      <div class="h-brand-name">NewBroker<br>Master</div>
+      <img src="logo.jpg" alt="NewBroker Master" class="h-logo">
     </div>
 
     <p class="h-eyebrow">Simulador de Viabilidade Imobiliária</p>
@@ -429,8 +406,7 @@
 
   <div class="q-header">
     <div class="q-brand">
-      <div class="q-badge">NB</div>
-      <div class="q-brand-name">NewBroker Master</div>
+      <img src="logo.jpg" alt="NewBroker Master" class="q-logo">
     </div>
     <div class="q-counter" id="qCounter">Passo 1 de 5</div>
   </div>
